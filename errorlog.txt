@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "C:\Admin Tools\Python\MyScripts\animesorter\__main__.py", line 5, in <module>
+    GUI().mainloop()
+  File "C:\Admin Tools\Python\MyScripts\animesorter\sorter.py", line 42, in __init__
+    raise Exception
+Exception
