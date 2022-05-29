@@ -1,10 +1,24 @@
-from tkinter import Tk, Frame, Label, Spinbox, LabelFrame as LFrame, messagebox as mbox
 from scrolledframe import ScrolledFrame as SFrame
-from tkinter.ttk import Button, Separator, Style
 from re import match as re_match
 from changecolor import lighten
 from typing import Union as U
 from pathlib import Path
+
+
+from tkinter import (
+    LabelFrame as LFrame,
+    messagebox as mbox,
+    Tk,
+    Frame,
+    Label,
+    Spinbox
+)
+from tkinter.ttk import (
+    Button,
+    Separator,
+    Style
+)
+
 
 from .constants import *
 
@@ -39,13 +53,13 @@ class GUI(Tk):
         self.option_add('*font', FONT)
         self.bind_all(sequence='<ButtonRelease-1>',
                       func=lambda e: e.widget.focus_set())
-        raise Exception
+        # raise Exception
         self.after_idle(self.start_main)
 
     def start_main(self) -> None:
         # init vars
         self.data = dict()
-        self.cwd = Path(PATH)
+        self.cwd = PATH
         self.defBg = self.cget('bg')
         self.litBg = lighten(color=self.winfo_rgb(self.defBg),
                              percent=5,
@@ -72,7 +86,7 @@ class GUI(Tk):
                       y=(-PAD))
         # create containing frame
         lfrm = LFrame(master=self,
-                      text="Anime List")
+                      text="Use Arrows to Rearrange Folders")
         lfrm.place(anchor='n',
                    relx=0.5,
                    rely=0,

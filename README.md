@@ -1,26 +1,26 @@
-# [Anime Sorter](https://github.com/Cryden13/Python/tree/main/animesorter)
+# [List Sorter](https://github.com/Cryden13/ListSorter)
 
 This is a small app that lists and enumerates files within a given folder sequentially
 
 ## Usage
 
-Set the variables within constants.py to the preferred values, then run  
-the main script from the command line (py "path\to\animesorter")
+Set the variables within the config file to the preferred values, then run  
+the main script from the command line (py -m "<path\to\listsorter>")
 
 ### Requirements
 
-from [Cryden13](https://github.com/Cryden13/Python):
+from [Cryden13](https://github.com/Cryden13):
 
-- scrolledframe
-- changecolor
+- [ScrolledFrame](https://github.com/Cryden13/ScrolledFrame)
+- [ChangeColor](https://github.com/Cryden13/ChangeColor)
 
 ## Explanation of Variables
 
-- **WIDTH:** the desired width of the app window
-- **HEIGHT:** the desired height of the app window
-- **PAD:** the padding around all widgets
-- **FONT:** the preferred font
-- **PATH:** the path to the folder to enumerate
+- **width:** the desired width of the app window
+- **height:** the desired height of the app window
+- **padding:** the padding around all widgets
+- **font:** the preferred font
+- **path:** the path to the folder to enumerate
 
 ## Changelog
 
@@ -46,6 +46,22 @@ from [Cryden13](https://github.com/Cryden13/Python):
                     <ul>
                         <li>fixed output</li>
                         <li>fixed update bug</li>
+                    </ul>
+                </dl>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">1.2</td>
+            <td>
+                <dl>
+                    <dt>new</dt>
+                    <ul>
+                        <li>redid main to use logging</li>
+                        <li>redid constants to use a config file</li>
+                    </ul>
+                    <dt>bugfixes</dt>
+                    <ul>
+                        <li>None!</li>
                     </ul>
                 </dl>
             </td>

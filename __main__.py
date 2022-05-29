@@ -1,5 +1,10 @@
+from pathlib import Path
+import logging
+
+from commandline import openfile
+
 try:
-    from .sorter import GUI
+    from src.sorter import GUI
 except ImportError:
     from pathlib import Path
     from subprocess import run
@@ -7,15 +12,23 @@ except ImportError:
     run(['py', '-m', pth.name], cwd=pth.parent)
     raise SystemExit
 
-if __name__ == '__main__':
+
+def main():
+    errlog = Path(__file__).with_name('errorlog.txt')
+    logging.basicConfig(filename=errlog,
+                        filemode='w',
+                        level=logging.ERROR,
+                        format='[%(asctime)s] %(levelname)s: %(module)s.%(funcName)s\n%(message)s\n',
+                        datefmt='%m/%d/%Y %I:%M:%S%p')
     try:
         GUI().mainloop()
     except:
-        from pathlib import Path
-        from subprocess import Popen
-        from traceback import format_exc
-        errLog = Path(__file__).parent.joinpath('errorlog.txt')
-        errLog.write_text(format_exc())
-        Popen(['powershell',
-               '-command',
-               f'[system.media.systemsounds]::Hand.play(); Start-Process "{errLog}"'])
+        logging.exception('')
+        raise
+    finally:
+        if errlog.read_text():
+            openfile(errlog)
+
+
+if __name__ == '__main__':
+    main()
